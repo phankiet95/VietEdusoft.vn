@@ -17,7 +17,7 @@
     left: 5%;
     position: absolute;
     z-index: 1;
-    padding: 10px;
+    padding: 0px 10px;
     transition: all 1s;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .question-text {
-    font-size: 38px;
+    font-size: 46px;
     font-weight: bolder;
 }
 

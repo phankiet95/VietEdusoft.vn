@@ -752,11 +752,11 @@ function destroyMedia() {
 }
 
 function showResultPanel() {
-  $('.question-text').text('Bạn đã trả lời đúng: ' + rightAnswerNumber + '/' + window.questionList.length);
+  $('.question-text').text('Right Answers: ' + rightAnswerNumber + '/' + window.questionList.length);
   $('.resultDisplay').removeClass('d-none');
   $('.questionDisplay').addClass('resultDisplayPanel');
   $('.resultTable ').empty();
-  $('.resultTable').append('<thead><tr><th>Câu hỏi</th><th>Đáp án</th><th>Kết quả</th></tr></thead>');
+  $('.resultTable').append('<thead><tr><th>Question</th><th>Answer</th><th>Result</th></tr></thead>');
   window.questionList.forEach((element, i) => {
     $('.resultTable').append(`<tr><td>${element.question}</td><td>${element.answer}</td><td>${element.result}</td></tr>`);
   });

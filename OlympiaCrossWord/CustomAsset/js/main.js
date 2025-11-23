@@ -282,7 +282,7 @@ $(document).ready(function () {
   });
   function changeFontSize(object) {
     slideData.font.fontSize = parseInt(object);
-    cellSize = parseInt(slideData.font.fontSize + 10);
+    cellSize = parseInt(slideData.font.fontSize + 12);
     updateSlideView();
   }
   $(document).on('change', '#fontSize', function () {

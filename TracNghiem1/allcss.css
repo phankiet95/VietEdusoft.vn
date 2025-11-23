@@ -733,9 +733,9 @@ cursor: pointer;
 }
 
 .question-text {
-  font-size: 38px;
+  font-size: 46px;
   font-weight: bolder;
-  line-height: 90%;
+  line-height: 100%;
 }
 
 .scorebar {
