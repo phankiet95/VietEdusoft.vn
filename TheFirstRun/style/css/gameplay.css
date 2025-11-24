@@ -1,0 +1,221 @@
+.gamePlayMainPanel {
+    transition: all 2s;
+}
+
+.Playing {
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: #00000091;
+    transition: all 2s;
+}
+
+.questionDisplay {
+    height: auto;
+    width: 75%;
+    top: 100vh;
+    left: 8vh;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    transition: all 1s;
+}
+
+.heightAuto {
+    height: auto;
+}
+
+.questionDisplayActive {
+    top: 62vh;
+}
+
+.resultDisplayPanel {
+    height: 88%;
+    width: 90%;
+    top: 10vh;
+    left: 8vh;
+    overflow-y: auto;
+}
+
+.resultTable {
+    font-size: 28px;
+    font-weight: bold;
+    border-spacing: 10px;
+}
+
+.resultTable tr {
+    line-height: 45px;
+}
+
+.resultTable td {
+    max-width: 530px;
+}
+
+.bottombar {
+    height: 7%;
+    width: 1%;
+    top: 74vh;
+    left: -1vh;
+    position: absolute;
+    transition: all 1s;
+}
+
+.bottombarActive {
+    width: 110%;
+}
+
+.questionMedia {
+    height: 95vh;
+    width: 75vw;
+    top: -95%;
+    left: 8vh;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s;
+    border: #ffffff6e 3px solid;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background-color: #ffffff0d;
+}
+
+.questionMediaActive {
+    top: 1%;
+    transition: all 0.5s;
+}
+
+
+.transparentBar {
+    backdrop-filter: blur(15px);
+    /* border: #000000d9 4px solid; */
+    border-radius: 10px;
+    background-color: #ffffff6b;
+}
+
+.question-text {
+    font-size: 46px;
+    font-weight: bolder;
+}
+
+.scorebar {
+    height: 180px;
+    width: 210px;
+    top: 68vh;
+    right: -15%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 1s;
+}
+
+.scorebarActive {
+    right: 3%;
+}
+
+#score-text {
+    font-size: 105px;
+    font-weight: bolder;
+}
+
+.JudgementBar {
+    height: 100px;
+    width: 250px;
+    top: 40vh;
+    right: -30%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.JudgementBarActive {
+    right: 0%;
+}
+
+.TimerBar {
+    height: 70px;
+    width: 250px;
+    top: 30vh;
+    right: -25%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 1s;
+}
+
+.TimerBarActive {
+    right: 0%;
+}
+
+#timer-text {
+font-size: 70px;
+    font-weight: bolder;
+    top: -20px;
+    position: absolute;
+    width: 100%;
+}
+
+
+.questionMedia_img {
+    /* width:100%; */
+    height: 100%;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* background-size:100% 100%; */
+}
+
+.questionMedia_video {
+    border-radius: 20px;
+    pointer-events: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.questionMedia_audio {
+    margin-top: 20%;
+    width: 100%;
+}
+
+.rightAnswer {
+    background: #48c78e;
+    width: 100px;
+    height: 75px;
+    left: 10px;
+    position: absolute;
+    border: 2px solid white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.wrongAnwser {
+    background: #e46161;
+    width: 100px;
+    height: 75px;
+    left: 140px;
+    position: absolute;
+    border: 2px solid white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.StartAgainBar {
+    height: 30px;
+    width: 100px;
+    top: 95vh;
+    right: 5%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    transition: all 1s;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}

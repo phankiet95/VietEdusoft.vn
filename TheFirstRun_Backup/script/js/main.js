@@ -73,15 +73,9 @@ $(document).on('change', '#importHtml', function () {
                 window.questionList = data;
                 loadQuestionFromListData();
                 setIntro();
-                loadBackground();
                 $('.countdown').val(window.setting.countdown);
                 currentChosenIndex = -1;
                 showAlert(SUCCESS_IMPORT_GAME);
-                const hideQuestionListBtn = document.getElementsByClassName('hideQuestionList')[0];
-                if (hideQuestionListBtn.classList.contains('active') === true) {
-                  hideQuestionListBtn.click();
-                }
-                
             } else {
               showAlert(ERROR_WRONG_GAME);
             }
@@ -102,14 +96,9 @@ $(document).on('change', '#importHtml', function () {
           window.questionList = jsonData.data;
           loadQuestionFromListData();
           setIntro();
-          loadBackground();
           $('.countdown').val(window.setting.countdown);
           currentChosenIndex = -1;
           showAlert(SUCCESS_IMPORT_GAME);
-          const hideQuestionListBtn = document.getElementsByClassName('hideQuestionList')[0];
-          if (hideQuestionListBtn.classList.contains('active') === true) {
-            hideQuestionListBtn.click();
-          }
         } else {
           showAlert(ERROR_WRONG_GAME);
         }
@@ -123,19 +112,3 @@ $(document).on('change', '#importHtml', function () {
 
 });
 
-
-function loadBackground() {
-  let player = document.getElementById('backgroundSlideVideo');
-  if (setting.background == undefined) return;
-  if (setting.background.type.includes('video')) {
-    $('.slideList')[0].style.removeProperty('background-image');
-    //base64 = `data:video/mp4;base64,${setting.background.base64}`;
-    player.setAttribute('src', setting.background.base64);
-    //setting.background = { type: 'video', name: file.name, base64 };
-  } else if (setting.background.type.includes('image')) {
-    player.removeAttribute('src');
-    //base64 = `data:image/gif;base64,${setting.background.base64}`;
-    $('.slideList').css('background-image', 'url(' + setting.background.base64 + ')');
-    //setting.background = { type: 'image', name: file.name, base64 };
-  }
-}

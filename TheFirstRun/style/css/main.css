@@ -1,0 +1,37 @@
+.main_container #createPage .mediaIcon,
+.main_container #createPage .icon {
+  text-align: center;
+  cursor: pointer;
+}
+
+.main_container #createPage .uploadBtn {
+  cursor: pointer;
+  padding: 0;
+  color:black;
+}
+
+.main_container #createPage .mediaCancel {
+  cursor: pointer;
+  padding: 0;
+  color:red;
+}
+
+.uploaded {
+  color: green !important;
+}
+
+
+.main_container #createPage .fileName {
+  margin-left: 10px;
+}
+
+.main_container #createPage .questionFile {
+  width: 35px;
+  padding-left: 1px;
+  border: 1px solid #ced4da;
+}
+
+.main_container #createPage .question .input-group-append {
+  cursor: pointer;
+}
+

@@ -167,34 +167,6 @@ $(document).on('change', '.inputAnswer', function () {
     console.log('Change answer ', $(this).val());
 });
 
-function processFile(file) {
-    if (!file) {
-      return;
-    }
-    // Load the data into an image
-    new Promise(function (resolve, reject) {
-      let rawImage = new Image();
-  
-      rawImage.addEventListener("load", function () {
-        resolve(rawImage);
-      });
-  
-      rawImage.src = URL.createObjectURL(file);
-    })
-      .then(function (rawImage) {
-        let canvas = document.createElement('canvas');
-        let ctx = canvas.getContext("2d");
-        canvas.width = rawImage.width;
-        canvas.height = rawImage.height;
-        ctx.drawImage(rawImage, 0, 0);
-  
-        const output = canvas.toDataURL("image/webp",0.8).replace('data:', '').replace(/^.+,/, '');
-  
-        window.questionList[currentChosenIndex].base64 = `data:image/gif;base64,${output}`;
-        window.questionList[currentChosenIndex].type = CONST_IMAGE;
-      });
-  }
-
 // Upload question file
 $(document).on('change', '.uploadFile', function () {
     let file = $(this)[0].files[0];
@@ -202,28 +174,22 @@ $(document).on('change', '.uploadFile', function () {
         showAlert(ERROR_MAX_SIZE_ALLOW);
         return;
     }
-    const fileType = file['type'];
-    // Not change to Webp if image is image/gif
-    if (fileType != 'image/gif' && !file.type.includes(CONST_AUDIO) && !file.type.includes(CONST_VIDEO)) {
-        console.log('Convert to Webp');
-        processFile(file);
-    } else {
-        toBase64(file, (base64) => {
-            if (file.type.includes(CONST_AUDIO)) {
-                window.questionList[currentChosenIndex].base64 = `data:audio/mp3;base64,${base64}`;
-                window.questionList[currentChosenIndex].type = CONST_AUDIO;
-            }
-            if (file.type.includes(CONST_VIDEO)) {
-                window.questionList[currentChosenIndex].base64 = `data:video/mp4;base64,${base64}`;
-                window.questionList[currentChosenIndex].type = CONST_VIDEO;
-            }
-            if (file.type.includes(CONST_IMAGE)) {
-                window.questionList[currentChosenIndex].base64 = `data:image/gif;base64,${base64}`;
-                window.questionList[currentChosenIndex].type = CONST_IMAGE;
-            }
-        });
-    }
+    toBase64(file, (base64) => {
+        if (file.type.includes(CONST_AUDIO)) {
+            window.questionList[currentChosenIndex].base64 = `data:audio/mp3;base64,${base64}`;
+            window.questionList[currentChosenIndex].type = CONST_AUDIO;
+        }
 
+        if (file.type.includes(CONST_VIDEO)) {
+            window.questionList[currentChosenIndex].base64 = `data:video/mp4;base64,${base64}`;
+            window.questionList[currentChosenIndex].type = CONST_VIDEO;
+        }
+
+        if (file.type.includes(CONST_IMAGE)) {
+            window.questionList[currentChosenIndex].base64 = `data:image/gif;base64,${base64}`;
+            window.questionList[currentChosenIndex].type = CONST_IMAGE;
+        }
+    });
     $(this).val(null);
     // Change color of media icon, and show the cancel button
     $('.uploadBtn').eq(currentChosenIndex).addClass('uploaded');
