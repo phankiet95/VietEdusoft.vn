@@ -21,19 +21,3 @@ window.mediaPanel = `
   </label>
 </div>`;
 
-window.questionPanel = `
-  <div class="question">
-    <div class="input-group mr-sm-2">
-      <div class="input-group-prepend">
-        <div class="input-group-text">
-          <strong>1</strong>
-        </div>
-      </div>
-      <textarea type="text" class="form-control inputQuestion" placeholder="Câu hỏi" rows="3"></textarea>
-      ${mediaPanel}
-    </div>
-    <div class="input-group mr-sm-2 mt-2">
-      <input type="text" class="form-control inputAnswer" placeholder="Đáp án">
-    </div>
-  </div>`;
-
