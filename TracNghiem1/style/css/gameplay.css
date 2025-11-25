@@ -1,0 +1,256 @@
+.gamePlayMainPanel {
+    transition: all 2s;
+}
+
+.Playing {
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: #00000091;
+    transition: all 2s;
+}
+
+.questionDisplay {
+    height: 13%;
+    width: 75%;
+    top: 100vh;
+    left: 5%;
+    position: absolute;
+    z-index: 1;
+    padding: 7px;
+    transition: all 1s;
+}
+
+.questionDisplayActive {
+    top: 60%;
+}
+
+.resultDisplayPanel {
+    height: 88%;
+    width: 90%;
+    top: 10vh;
+    left: 8vh;
+    overflow-y: auto;
+}
+
+.resultTable {
+    font-size: 28px;
+    font-weight: bold;
+    border-spacing: 10px;
+}
+
+.resultTable tr {
+    line-height: 45px;
+}
+
+.resultTable td {
+    max-width: 530px;
+}
+
+.bottombar {
+    height: 7%;
+    width: 1%;
+    top: 74vh;
+    left: -1vh;
+    position: absolute;
+    transition: all 1s;
+}
+
+.bottombarActive {
+    width: 110%;
+}
+
+.answer1 {
+    height: 10%;
+    width: 40%;
+    top: 73.5%;
+    left: 2%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    transition: all 1s;
+}
+
+.answer1Active {
+    top: 62vh;
+}
+
+.answer2 {
+    height: 10%;
+    width: 40%;
+    top: 73.5%;
+    left: 44%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    transition: all 1s;
+}
+
+.answer3 {
+    height: 10%;
+    width: 40%;
+    top: 84.5%;
+    left: 2%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    transition: all 1s;
+}
+
+.answer3Active {
+    top: 82.5%;
+}
+
+.answer4 {
+    height: 10%;
+    width: 40%;
+    top: 84.5%;
+    left: 44%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    transition: all 1s;
+}
+
+.answer4Active {
+    top: 84.5%;
+}
+
+.questionMedia {
+    height: 60vh;
+    width: 75vw;
+    top: -95%;
+    left: 7vh;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s;
+    border: #ffffff6e 3px solid;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background-color: #ffffff0d;
+}
+
+.questionMediaActive {
+    top: 1%;
+    transition: all 0.5s;
+}
+
+
+.transparentBar {
+    backdrop-filter: blur(15px);
+    border: #ffffffe6 4px solid;
+    border-radius: 10px;
+    background-color: #ffffff6b;
+}
+
+.question-text {
+    font-size: 46px;
+    font-weight: bolder;
+    line-height: 90%;
+}
+
+.scorebar {
+    height: 180px;
+    width: 210px;
+    top: 68vh;
+    right: -15%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 1s;
+}
+
+.scorebarActive {
+    right: 1%;
+}
+
+#score-text {
+    font-size: 105px;
+    font-weight: bolder;
+}
+
+.answerChoicePanel {
+    opacity: 0%;
+    transition: all 0.5s;
+}
+
+.answerChoicePanelActive {
+    opacity: 100%;
+}
+
+.JudgementBar {
+    height: 100px;
+    width: 250px;
+    top: 40vh;
+    right: -30%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.JudgementBarActive {
+    right: 0%;
+}
+
+.TimerBar {
+    height: 70px;
+    width: 250px;
+    top: 30vh;
+    right: -25%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 1s;
+}
+
+.TimerBarActive {
+    right: 0%;
+}
+
+#timer-text {
+font-size: 70px;
+    font-weight: bolder;
+    top: -25px;
+    position: absolute;
+    width: 100%;
+}
+
+
+
+.questionMedia_img {
+    height: 100%;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.questionMedia_video {
+    border-radius: 20px;
+    pointer-events: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.questionMedia_audio {
+    margin-top: 20%;
+    width: 100%;
+}
+
+.StartAgainBar {
+    height: 30px;
+    width: 100px;
+    top: 95vh;
+    right: 5%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    transition: all 1s;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
