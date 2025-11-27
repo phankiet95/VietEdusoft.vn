@@ -1,0 +1,241 @@
+a:link {
+  text-decoration: none;
+}
+
+.btn {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  background-color: #ffffff33;
+}
+
+input[type='file'] {
+  font-size: 12px;
+}
+
+input[type='file'].uploadFile, input[type='file']#importHtml {
+  display: none;
+}
+
+select:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: 0px !important;
+}
+
+html {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body {
+  overflow: hidden;
+}
+
+.main_container {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main_container #createPage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main_container #createPage .main_view {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.slideList {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+.slideList #backgroundSlideVideo {
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.slideList .gameHeader {
+  display: flex;
+  margin: 20px 0;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+
+  position: absolute;
+  z-index: 1;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.main_container #horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4776e6;
+}
+
+.main_container #horizontal li {
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 3px 6px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.main_container #horizontal li:hover {
+  background-color: #ff7062 !important;
+}
+
+.main_container #horizontal li #exportHtml {
+  cursor: pointer;
+}
+
+.main_container #horizontal li.active {
+  background-color: #ff7062 !important;
+}
+
+.main_container #horizontalExtra {
+  margin: 0;
+  padding-left: 0;
+  overflow: hidden;
+  border-bottom: 1px solid #ced4da;
+}
+
+.main_container #horizontalExtra select {
+  border-left: 1px solid #ced4da;
+  border-right: 1px solid #ced4da;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+  background-position: right 0.2rem center;
+}
+
+
+.main_container #createPage .main_view {
+  overflow: hidden;
+  margin-right: 0;
+}
+
+.main_container #createPage .main_view #leftPanel {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: relative;
+  background: #f1f1f1;
+  padding-bottom: 10px;
+  padding-right: 0px;
+  width: 25%;
+  min-width: 280px;
+}
+
+.main_container #createPage .main_view #leftPanel:not(.active) {
+  margin-left: -25%;
+}
+
+.main_container #createPage .main_view #questionList .input-group-prepend .input-group-text {
+  background-color: #6768ab;
+  color: white;
+}
+
+#createPage #questionList {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 10px;
+  padding-right: 5px;
+  position: relative;
+  background: #f1f1f1;
+  height: 95vh;
+  overflow-y: scroll;
+}
+
+#createPage .question {
+  -webkit-box-shadow: 0px 0px 10px 0px #dddcdc;
+          box-shadow: 0px 0px 10px 0px #dddcdc;
+  margin: 10px 0px;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+}
+
+.chosen {
+  box-shadow: 0px 0px 10px 0px #ff3838 !important;
+}
+
+.main_container #createPage .main_view .hideQuestionList {
+  z-index: 2;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 12px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #ffffff50;
+}
+
+#createPage #addQuesWrap {
+  border-top: 1px solid #00000036;
+  padding-top: 5px;
+}
+
+#createPage #addQuesWrap * {
+  margin-left: 3px;
+}
+
+.main_container #createPage .main_view .hideQuestionList.active {
+  margin-left: 25%;
+}
+
+.main_container #createPage .main_view .hideQuestionList i {
+  color: white;
+}
+
+svg {
+  width:30px;
+  height:30px;
+  color:white;
+}

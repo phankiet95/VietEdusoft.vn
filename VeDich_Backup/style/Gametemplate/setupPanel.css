@@ -1,0 +1,95 @@
+#setupPanel {
+  background-color: #ffffff2e;
+  width: 300px;
+  font-family: monospace;
+  font-size: large;
+  font-weight: bolder;
+  z-index: 1;
+  padding: 0.5rem;
+  top: 0;
+  right: 0;
+  position: absolute;
+  transition: all 0.5s;
+}
+#setupPanel:not(.active) {
+  right: -300px;
+}
+#setupPanel .item .animationList {
+  float: right;
+}
+#setupPanel .item .animationList [disabled] {
+  color: black !important;
+  font-weight: bolder;
+}
+
+#setupPanel #setupBtn {
+  z-index: 1;
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  left: -70px;
+}
+
+.setupPanel {
+  background: linear-gradient(0deg, rgb(0 0 0 / 30%), rgb(45 107 137 / 30%));
+  box-shadow: inset 0 0 0 2000px rgb(0 227 255 / 30%);
+  width: 300px;
+  min-width: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: large;
+  font-weight: bolder;
+  color: white;
+  z-index: 1;
+  transition: all 0.3s;
+  padding: 1rem;
+}
+
+.setupPanel_section {
+  margin-top: 10px;
+  min-height: 60px;
+  font-size: 20px;
+}
+
+.setupPanel_section:hover {
+  background-color: #ffffff2e;
+}
+
+.smallbutton{
+  padding: 2px 4px;
+  border-radius: 5px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.setupPanel_credit {
+  text-align: center;
+  font-size: large;
+}
+
+
+.backgroundSlideVideo {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: rgb(132, 210, 241);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%,color-stop(.5, rgba(255, 255, 255, .2)),color-stop(.5, transparent), to(transparent));
+}
+

@@ -1,0 +1,19 @@
+/* Question Media Preview */
+
+.questionMediaPreview {
+    position: absolute;
+    width: 550px;
+    height: 350px;
+    top: -350px;
+    left: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.226);
+    border: #ffffff6e 3px solid;
+    border-radius: 20px;
+    z-index: 3;
+    transition: all 0.5s;
+  }
+
+.questionMediaPreviewActive {
+  top: 80px;
+}

@@ -1,0 +1,30 @@
+.slideList .gameHeader .timerbar {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  font-family: cursive;
+  color: brown;
+  pointer-events: none;
+}
+
+.slideList .gameHeader .reloadGame {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  height: fit-content;
+  text-transform: uppercase;
+  background: #EE872A;
+  color: white;
+  padding: 5px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+.slideList .gameHeader .reloadGame:hover {
+  background: cornflowerblue;
+}
+
+.blank {
+  pointer-events: none;
+}
+
+
