@@ -1,0 +1,396 @@
+.gamePlayMainPanel {
+    transition: all 2s;
+}
+
+.Playing {
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: #00000091;
+    transition: all 2s;
+}
+
+.questionDisplay {
+    height: 34%;
+    width: 75%;
+    top: 100%;
+    left: 8%;
+    position: absolute;
+    z-index: 1;
+    /* padding: 10px; */
+    transition: all 1s;
+}
+
+.questionDisplayActive {
+    top: 62%;
+}
+
+.resultDisplayPanel {
+    padding: 10px;
+    height: 88%;
+    width: 90%;
+    top: 10%;
+    left: 8%;
+    overflow-y: auto;
+}
+
+.resultTable {
+    font-size: 28px;
+    font-weight: bold;
+    border-spacing: 10px;
+}
+
+.resultTable tr {
+    line-height: 45px;
+}
+
+.resultTable td {
+    max-width: 530px;
+}
+
+.bottombar {
+    height: 7%;
+    width: 1%;
+    top: 74%;
+    left: -1%;
+    position: absolute;
+    transition: all 1s;
+}
+
+.bottombarActive {
+    width: 110%;
+}
+
+.questionMedia {
+    height: 60%;
+    width: 45%;
+    top: -70%;
+    left: 37%;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s;
+    border: #ffffff6e 3px solid;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background-color: #ffffff0d;
+    transition: all 0.5s;
+}
+
+.questionMediaActive {
+    top: 1%;
+}
+
+#createPage .main_view .hideQuestionList.active ~ .slideList #mainGamePlayPanel .questionMedia{
+    width: 61%;
+}
+
+/* spin */
+.questionChartSpin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -70%;
+    left: 2%;
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+.questionChartSpinActive {
+    top: 1%;
+}
+
+.spin-text-shadows {
+    text-shadow: 3px 3px 0 #f49b90, 6px 6px 0 #f28b7d,
+      9px 9px #f07a6a, 12px 12px 0 #ee6352;
+    text-align: center;
+    margin: 0;
+    color: #f6aca2;
+    color: transparent;
+    background-color: white;
+    background-clip: text;
+    animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+}
+  
+@keyframes shadows {
+    0% {
+      text-shadow: none;
+    }
+    10% {
+      text-shadow: 3px 3px 0 #f49b90;
+    }
+    20% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d;
+    }
+    30% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d, 9px 9px #f07a6a;
+    }
+    40% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d, 9px 9px #f07a6a,
+        12px 12px 0 #ee6352;
+    }
+    50% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d, 9px 9px #f07a6a,
+        12px 12px 0 #ee6352;
+    }
+    60% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d, 9px 9px #f07a6a,
+        12px 12px 0 #ee6352;
+    }
+    70% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d, 9px 9px #f07a6a;
+    }
+    80% {
+      text-shadow: 3px 3px 0 #f49b90,
+        6px 6px 0 #f28b7d;
+    }
+    90% {
+      text-shadow: 3px 3px 0 #f49b90;
+    }
+    100% {
+      text-shadow: none;
+    }
+}
+  
+@keyframes move {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    40% {
+      transform: translate(-12px, -12px);
+    }
+    50% {
+      transform: translate(-12px, -12px);
+    }
+    60% {
+      transform: translate(-12px, -12px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+}
+/* spin */
+
+.transparentBar {
+    backdrop-filter: blur(15px);
+    /* border: #000000d9 4px solid; */
+    border-radius: 10px;
+    background-color: #ffffff6b;
+}
+
+/* flip-question-answer */
+.flip-question-answer {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.flip-question-answer-inner {
+    position: relative;
+    width: 97%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-question-answer.flip-question-answer-active .flip-question-answer-inner {
+    transform: rotateX(180deg);
+}
+
+.flip-question-answer-front, .flip-question-answer-back {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-question-answer-front {
+}
+  
+.flip-question-answer-back  {
+    transform: rotateX(180deg);
+}
+/* flip-question-answer */
+
+.question-text, .answer-text, .result-text {
+    font-size: 38px;
+    font-weight: bolder;
+}
+
+.scorebar {
+    height: 160px;
+    width: 190px;
+    top: 68%;
+    right: -15%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    transition: all 1s;
+}
+
+.scorebarActive {
+    right: 3%;
+}
+
+#score-text {
+    font-size: 98px;
+    font-weight: bolder;
+}
+
+.JudgementBar {
+    height: 100px;
+    width: 250px;
+    top: 40%;
+    right: -30%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.JudgementBarActive {
+    right: 0%;
+}
+
+.TimerBar {
+    height: 65px;
+    width: 220px;
+    top: 30%;
+    right: -25%;
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    transition: all 1s;
+}
+
+.TimerBarActive {
+    right: 0%;
+}
+
+#timer-text {
+    font-size: 70px;
+    font-weight: bolder;
+    top: -20px;
+    position: absolute;
+    width: 100%;
+}
+
+
+
+.questionMedia_img {
+    height: 100%;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.questionMedia_video {
+    border-radius: 20px;
+    pointer-events: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.questionMedia_audio {
+    margin-top: 20%;
+    width: 100%;
+}
+
+.rightAnswer {
+    background: #48c78e;
+    width: 100px;
+    height: 75px;
+    left: 10px;
+    position: absolute;
+    border: 2px solid white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.wrongAnwser {
+    background: #e46161;
+    width: 100px;
+    height: 75px;
+    left: 140px;
+    position: absolute;
+    border: 2px solid white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+
+.flip-question-answer-front {
+    animation-name: breathing-effect;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes breathing-effect {
+    0% {transform: scale(1.0);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1.0);}
+}
+
+.questionChartSpinActive {
+    animation-name: breathing-effect-spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes breathing-effect-spin {
+    0% {top: 1%;}
+    50% {top: 0%;}
+    100% {top: 1%;}
+}
+
+.chartholder {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+#score-text {
+    animation-name: breathing-effect-score;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes breathing-effect-score {
+    0% {transform: scale(1.0);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1.0);}
+}
+
+.TimerBar {
+    animation-name: breathing-effect-score;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.StartAgainBar {
+    height: 30px;
+    width: 100px;
+    top: 95%;
+    right: 5%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    transition: all 1s;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}

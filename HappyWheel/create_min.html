@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VietEduSoft</title>
+  <link rel="icon" type="image/png" sizes="16x16" name="gameIcon" />
+
+  <!-- Common Asset -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+
+  <script src="./commonAsset/script/sweetalert2.all.min.js"></script>
+
+
+  <script src="./commonAsset/script/d3.min.js" charset="utf-8"></script>
+  <script src="./min/alljs.js"></script>
+  <script src="./script/js/GameCustomAsset.js"></script>
+
+  <link rel="stylesheet" href="./min/allcss.css">
+
+</head>
+
+<body oncontextmenu="return false;">
+  <div class="main_container container-fluid p-0">
+
+    <!-- Create page -->
+    <div id="createPage" class="page">
+      <div class="main_view row position-relative">
+        <!-- Game font/size config Panel-->
+        <div id ="leftPanel" class="col-3 active">
+          <ul id="horizontal">
+            <li id="create">
+              <label id="importBtn" class="icon" style="cursor:pointer">
+              <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+              </svg>
+              <input id="importHtml" type="file" accept=".html, .VietEdusoft"> Nhập </label>
+            </li>
+            <li id="exportDataFile">
+              <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Lưu về
+            </li>
+            <li id="exportHtml" style="float:right; display:none">
+              <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
+              </svg>
+              Xuất bản
+            </li>
+          </ul>
+
+          <div id="horizontalExtra">
+          </div>
+
+          <!-- Question List-->
+          <div id="questionList" class="align-content-start"></div>
+
+          <div class="questionMediaPreview">
+            <img id="PreviewquestionMedia_img" class="d-none questionMedia_img" />
+            <audio id="PreviewquestionMedia_audio" class="d-none questionMedia_audio" controls="" autoplay  ></audio>
+            <video id="PreviewquestionMedia_video" class="d-none questionMedia_video" controls="none" autoplay ></video>
+          </div>
+
+          <!-- Question Add/remove button -->
+          <div id="addQuesWrap" class="row d-flex justify-content-start">
+            <div class="col">
+              <button id="btnAdd" type="button" class="btn btn-primary" style="background-color: #0d6efd;">
+                <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg></button>
+              <button id="btnDel" type="button" class="btn btn-danger" style="background-color: #dc3545;" disabled>
+                <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg></button>
+              <button id="btnUp" type="button" class="btn btn-success" style="background-color: #28a745;"> ⏶ </button>
+              <button id="btnDown" type="button" class="btn btn-success" style="background-color: #28a745;"> ⏷ </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- QuestionList open/close Button -->
+        <div class="hideQuestionList btn active">
+          <i><svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+          </svg>
+          </i>
+        </div>
+
+        <!-- Main Game display-->
+        <div class="slideList col-9">
+          <video id="backgroundSlideVideo" name="backgroundSlideVideo" class="p-0" autoplay="autoplay" muted="muted" loop></video>
+          <div class="gameHeader">
+            <span class="reloadGame" id="reloadGameButton">
+              <strong>
+                <svg class="svgicon"  style="margin-bottom: 9px;" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                </svg>
+              Bắt đầu </strong>
+            </span>
+          </div>
+          <div id="mainGamePlayPanel" class="d-none">
+            <!-- Start question chart -->
+            <div id="questionChartSpin" class="questionChartSpin">
+            </div>
+            <!-- Start question chart -->
+
+            <div class="questionMedia">
+              <div id="questionMedia_img" class="d-none questionMedia_img"></div>
+              <audio id="questionMedia_audio" class="d-none questionMedia_audio" controls="" autoplay  ></audio>
+              <video id="questionMedia_video" class="d-none questionMedia_video" controls="none" autoplay ></video>
+            </div>
+
+            <div class="questionDisplay">
+              <!-- flip question answer -->
+              <div id="flip-question-answer" class="flip-question-answer">
+                <div class="flip-question-answer-inner">
+                  <div class="flip-question-answer-front transparentBar">
+                    <p id="question-text" class="question-text"></p>
+                  </div>
+                  <div class="flip-question-answer-back transparentBar">
+                    <p id="answer-text" class="answer-text"></p>
+                  </div>
+                </div>
+              </div>
+              <!-- flip question answer -->
+              <div class="resultDisplay d-none">
+                <p id="result-text" class="result-text"></p>
+                <table class="resultTable table table-dark">
+                  <thead>
+                    <tr>
+                      <th>Câu hỏi</th>
+                      <th>Đáp án</th>
+                      <th>Kết quả</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+            <div class="TimerBar transparentBar"><p id="timer-text">30</p></div>
+            <div class="scorebar transparentBar">
+              <p id="score-text">😳</p>
+            </div>
+            <div id="StartAgainButton" class="StartAgainBar transparentBar">
+              <p>Chơi lại</p>
+            </div>
+            <div class="JudgementBar transparentBar">
+              <div class="rightAnswer"><span>✓</span></div>
+              <div class="wrongAnwser"><span>✗</span></div>
+            </div>
+            <div class="bottombar transparentBar"></div>
+          </div>
+        </div>
+        <nav id="setupPanel" class="shadow">
+          <div id="setupBtn" class="btn">
+            <span><svg class="svgicon"  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg></span>
+          </div>
+          <div class="item border basic setupPanel">
+            <div class="setupPanel_section">
+              <span class="pe-2 col">Nhạc nền</span>
+              <audio id="audio_background" style="width:100%" name="audio_background" src="" autoplay controls loop></audio>
+            </div>
+            <div class="setupPanel_section">
+              <span class="pe-2 col">Chọn nền ảnh, video</span>
+              <input type="file" class="background" accept="image/*, video/*" style="display:none"  id="inputBackgroundMedia" >
+              <div class="widget">
+                <label for="inputBackgroundMedia" id="labelInputFile" class="smallbutton labelInputFile">Chọn file</label>
+                <label class="smallbutton" id="destroyBackgroundMedia" class="destroyBackgroundMedia d-none"> Hủy </label>
+              </div>
+            </div>
+            <div class="setupPanel_section">
+              <label class="d-flex">
+                <span class="pe-2 col">Kích thước chữ:</span>
+                <select id="fontSize" class="form-select-sm">
+                  <option>26</option>
+                  <option>30</option>
+                  <option selected>38</option>
+                  <option>46</option>
+                </select>
+              </label>
+            </div>
+            <div class="setupPanel_section">
+              <label class="d-flex">
+                <span class="pe-2 col">Màu chữ</span>
+                <input type="color" class="color p-0 border-0" value="#ffffff">
+              </label>
+            </div>
+            <div class="setupPanel_section">
+              <label class="d-flex">
+                <span class="col" style="line-height: 30px">Giây đếm ngược</span>
+                <input type="text" class="countdown ps-2" maxlength="3" size="3" value="30">
+              </label>
+            </div>
+            <div class="setupPanel_section">
+              <label class="d-flex">
+                <span id="fullscreenbtn" class="smallbutton" style="line-height: 30px; width:100%">Bật/Tắt full màn hình</span>
+              </label>
+            </div>
+            <div class="setupPanel_section setupPanel_credit">
+              <a style="color:white" href="https://www.vietedusoft.vn/" target="_blank">Nền tảng phát triển trò chơi giáo dục<br>Vietedusoft.vn</a>
+            </div>
+          </div>
+        </nav>
+
+        <nav id="gameIntro">
+          <div id="gameIntroBtn" class="btn">
+            <span><svg class="svgicon"  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svgicon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+            </svg>
+            </span>
+          </div>
+          <div class="gameIntro_text d-none">
+            <p id="gameIntro_title" class="gameIntro_title  animate__animated animate__pulse animate__slow animate__infinite" contenteditable="true">Vòng quay vui vẻ</p>
+            <p id="gameIntro_detail" class="gameIntro_detail" contenteditable="true">Nhấn để quay ngẫu nhiên một câu hỏi,<br>Cố gắng trả lời đúng câu hỏi trong thời gian cho phép. Nếu quá thời gian thì sẽ bị tính là trả lời sai,<br></p>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Create page -->
+
+    <!-- All Game Custom Sound-->
+    <div id="backgroundSound" style="display:none">
+      <audio id="audio_startGame" name="audio_startGame" src=""></audio>
+      <audio id="audio_runTime" name="audio_runTime" loop src=""></audio>
+      <audio id="audio_right" name="audio_right"  src=""></audio>
+      <audio id="audio_wrong" name="audio_wrong" src=""></audio>
+      <audio id="audio_spin_chart" name="audio_spin_chart" src=""></audio>
+    </div>
+    <!-- All Game Custom Sound-->
+
+</body>
+
+</html>
