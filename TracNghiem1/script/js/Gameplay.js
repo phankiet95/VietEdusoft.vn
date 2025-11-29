@@ -26,6 +26,7 @@ function restartGame() {
   audio_startGame.play();
   // ---------------------
 
+  removeAllColor();
   startGameAnimation();
   currentShowingQuestion = 0;
   rightAnswerNumber = 0;
@@ -42,6 +43,7 @@ function restartGame() {
   $('#answer-text2').text('');
   $('#answer-text3').text('');
   $('#answer-text4').text('');
+
 
   setTimeout(function() {
     audio_runTime.play();
@@ -189,8 +191,30 @@ $(document).on('click', '#StartAgainButton', function () {
 $(document).on('click', '.answerPanel', function () {
   reAnimationJudgementBar();
 
+  const choiceA = $('.answer1')[0];  const choiceB = $('.answer2')[0];
+  const choiceC = $('.answer3')[0];  const choiceD = $('.answer4')[0];
+
+  if (choiceA.firstChild.getAttribute('ansVal') == window.questionList[currentShowingQuestion-1].answer) {
+    choiceA.classList.add('rightanswerPanel');
+  }
+  if (choiceB.firstChild.getAttribute('ansVal') == window.questionList[currentShowingQuestion-1].answer) {
+    choiceB.classList.add('rightanswerPanel');
+  }
+  if (choiceC.firstChild.getAttribute('ansVal') == window.questionList[currentShowingQuestion-1].answer) {
+    choiceC.classList.add('rightanswerPanel');
+  }
+  if (choiceD.firstChild.getAttribute('ansVal') == window.questionList[currentShowingQuestion-1].answer) {
+    choiceD.classList.add('rightanswerPanel');
+  }
+
+  const yourchoice = $(this);
+  if (yourchoice.children("p:first").attr('ansVal') != window.questionList[currentShowingQuestion-1].answer) {
+    
+    $(this).addClass('wronganswerPanel');
+  }
 
   let clickedAnwser = $(this).children("p:first").attr('ansVal');
+
   console.log('FIrst child clickedAnwser: ', clickedAnwser);
 
 
@@ -204,14 +228,15 @@ $(document).on('click', '.answerPanel', function () {
       showScore();
       setTimeout(function() {
         endGame();
-      }, 1500);
-      
+      }, 2000);
     }
   
     if (currentShowingQuestion < window.questionList.length) {
       score += 10;
       showScore();
-      loadNextQuestion();
+      setTimeout(function() {
+        loadNextQuestion();
+      }, 2000);
     }
   
     // Add animation then remove it
@@ -226,14 +251,35 @@ $(document).on('click', '.answerPanel', function () {
     audio_wrong.play();
     window.questionList[currentShowingQuestion-1].result = '✗';
     if (currentShowingQuestion == window.questionList.length) {
-      endGame();
+      setTimeout(function() {
+        endGame();
+      }, 2000);
     }
   
     if (currentShowingQuestion < window.questionList.length) {
-      loadNextQuestion();
+      setTimeout(function() {
+        loadNextQuestion();
+      }, 2000);
     }
   }
 });
+
+function removeAllColor() {
+  const choiceA = $('.answer1')[0];  const choiceB = $('.answer2')[0];
+  const choiceC = $('.answer3')[0];  const choiceD = $('.answer4')[0];
+  choiceA.classList.remove('rightanswerPanel');
+  choiceB.classList.remove('rightanswerPanel');
+  choiceC.classList.remove('rightanswerPanel');
+  choiceD.classList.remove('rightanswerPanel');
+  choiceA.classList.remove('wronganswerPanel');
+  choiceB.classList.remove('wronganswerPanel');
+  choiceC.classList.remove('wronganswerPanel');
+  choiceD.classList.remove('wronganswerPanel');
+  choiceA.classList.remove('d-none');
+  choiceB.classList.remove('d-none');
+  choiceC.classList.remove('d-none');
+  choiceD.classList.remove('d-none');
+}
 
 function loadNextQuestion() {
   showMedia(window.questionList[currentShowingQuestion].type, window.questionList[currentShowingQuestion].base64);
@@ -246,22 +292,67 @@ function loadNextQuestion() {
     showCursor: false,
   });
 
+  removeAllColor();
 
   let answerPool = [];
-  answerPool.push(window.questionList[currentShowingQuestion].answer != null ? window.questionList[currentShowingQuestion].answer : '');
-  answerPool.push(window.questionList[currentShowingQuestion].otherAnswer1 != null ? window.questionList[currentShowingQuestion].otherAnswer1 : '');
-  answerPool.push(window.questionList[currentShowingQuestion].otherAnswer2 != null ? window.questionList[currentShowingQuestion].otherAnswer2 : '');
-  answerPool.push(window.questionList[currentShowingQuestion].otherAnswer3 != null ? window.questionList[currentShowingQuestion].otherAnswer3 : '');
+  // answerPool.push(window.questionList[currentShowingQuestion].answer != null ? window.questionList[currentShowingQuestion].answer : '');
+  // answerPool.push(window.questionList[currentShowingQuestion].otherAnswer1 != null ? window.questionList[currentShowingQuestion].otherAnswer1 : '');
+  // answerPool.push(window.questionList[currentShowingQuestion].otherAnswer2 != null ? window.questionList[currentShowingQuestion].otherAnswer2 : '');
+  // answerPool.push(window.questionList[currentShowingQuestion].otherAnswer3 != null ? window.questionList[currentShowingQuestion].otherAnswer3 : '');
+  
+  let answerCount = 0;
+
+  if (window.questionList[currentShowingQuestion].answer != '') {
+    answerPool.push(window.questionList[currentShowingQuestion].answer);
+    answerCount++;
+  }
+  if (window.questionList[currentShowingQuestion].otherAnswer1 != '') {
+    answerPool.push(window.questionList[currentShowingQuestion].otherAnswer1);
+    answerCount++;
+  }
+  if (window.questionList[currentShowingQuestion].otherAnswer2 != '') {
+    answerPool.push(window.questionList[currentShowingQuestion].otherAnswer2);
+    answerCount++;
+  }
+  if (window.questionList[currentShowingQuestion].otherAnswer3 != '') {
+    answerPool.push(window.questionList[currentShowingQuestion].otherAnswer3);
+    answerCount++;
+  }
+  
   shuffle(answerPool);
   console.log(answerPool);
-  $('#answer-text1').text('A. ' + answerPool[0]);
-  $('#answer-text1').attr('ansVal', answerPool[0]);
-  $('#answer-text2').text('B. ' + answerPool[1]);
-  $('#answer-text2').attr('ansVal', answerPool[1]);
-  $('#answer-text3').text('C. ' + answerPool[2]);
-  $('#answer-text3').attr('ansVal', answerPool[2]);
-  $('#answer-text4').text('D. ' + answerPool[3]);
-  $('#answer-text4').attr('ansVal', answerPool[3]);
+  if (answerCount >= 1) {
+    $('#answer-text1').text('A. ' + answerPool[0]);
+    $('#answer-text1').attr('ansVal', answerPool[0]);
+  }
+  if(answerCount >= 2) {
+    $('#answer-text2').text('B. ' + answerPool[1]);
+    $('#answer-text2').attr('ansVal', answerPool[1]);
+  }
+  if(answerCount >= 3) {
+    $('#answer-text3').text('C. ' + answerPool[2]);
+    $('#answer-text3').attr('ansVal', answerPool[2]);
+  }
+  if(answerCount >= 4) {
+    $('#answer-text4').text('D. ' + answerPool[3]);
+    $('#answer-text4').attr('ansVal', answerPool[3]);
+  }
+
+  const choiceA = $('.answer1')[0];  const choiceB = $('.answer2')[0];
+  const choiceC = $('.answer3')[0];  const choiceD = $('.answer4')[0];
+
+  if (answerCount < 1) {
+    choiceA.classList.add('d-none');
+  }
+  if (answerCount < 2) {
+    choiceB.classList.add('d-none');
+  }
+  if (answerCount < 3) {
+    choiceC.classList.add('d-none');
+  }
+  if (answerCount < 4) {
+    choiceD.classList.add('d-none');
+  }
 
   currentShowingQuestion++;
 }

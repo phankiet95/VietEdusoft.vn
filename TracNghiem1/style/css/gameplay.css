@@ -254,3 +254,15 @@ font-size: 70px;
     font-weight: bolder;
     cursor: pointer;
 }
+
+.rightanswerPanel {
+    background-color: #4ffaa4b6;
+}
+
+.wronganswerPanel {
+    background-color: rgba(255, 128, 128, 0.719);
+}
+
+.hidden {
+    display: none;
+}
