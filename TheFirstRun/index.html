@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VHLDL8HB4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -59,7 +58,6 @@
   <script src="./script/js/GameCustomAsset.js"></script>
   <script src="./script/js/GameEditor.js"></script>
   <script src="./script/js/Gameplay.js"></script>
-
 
 
 </head>
@@ -156,6 +154,11 @@
               <audio id="questionMedia_audio" class="d-none questionMedia_audio" controls="" autoplay  ></audio>
               <video id="questionMedia_video" class="d-none questionMedia_video" controls="none" autoplay ></video>
             </div>
+
+            <div class="answerDisplay transparentBar">
+              <p id="answer-text" class="answer-text">aaaaaaa</p>
+            </div>
+
             <div class="questionDisplay transparentBar">
               <p id="question-text" class="question-text"></p>
               <div class="resultDisplay d-none">
@@ -206,7 +209,7 @@
                 <label class="smallbutton" id="destroyBackgroundMedia" class="destroyBackgroundMedia d-none"> Hủy </label>
               </div>
             </div>
-            <div class="setupPanel_section">
+            <div class="setupPanel_section d-none">
               <label class="d-flex">
                 <span class="pe-2 col">Kích thước chữ:</span>
                 <select id="fontSize" class="form-select-sm">

@@ -21,6 +21,23 @@
     transition: all 1s;
 }
 
+.answerDisplay {
+    height: auto;
+    width: auto;
+    top: 50vh;
+    left: -120vh;
+    position: absolute;
+    z-index: 1;
+    padding: 5px 20px;
+    transition: all 0.5s;
+    font-size: 46px;
+    font-weight: bolder;
+}
+
+.answerDisplayActive {
+    left: 8vh;
+}
+
 .heightAuto {
     height: auto;
 }

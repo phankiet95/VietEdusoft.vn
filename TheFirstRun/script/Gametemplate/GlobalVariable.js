@@ -16,8 +16,8 @@ const CONST_FONTSIZE_SELECT = 'fontSizeSelect';
 const CONST_COUNTDOWN_TEXTBOX = 'countDownTextBox';
 
 // Input file max size
-const CONST_MAX_SIZE_ALLOW = 30 * 1024 * 1024;
-const ERROR_MAX_SIZE_ALLOW = 'File quá nặng, xin hãy chọn file dưới 30Mb';
+const CONST_MAX_SIZE_ALLOW = 50 * 1024 * 1024;
+const ERROR_MAX_SIZE_ALLOW = 'File quá nặng, xin hãy chọn file dưới 50Mb';
 
 // notice
 const ERROR_WRONG_GAME = 'File vừa nhập không hợp lệ';

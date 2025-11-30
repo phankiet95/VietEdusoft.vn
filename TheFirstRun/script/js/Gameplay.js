@@ -188,15 +188,23 @@ $(document).on('click', '.rightAnswer', function () {
     showScore();
     setTimeout(function() {
       endGame();
-    }, 1500);
+    }, 2000);
     
   }
 
   if (currentShowingQuestion < window.questionList.length) {
     score += 10;
     showScore();
-    loadNextQuestion();
+    setTimeout(function() {
+      loadNextQuestion();
+    }, 1500);
   }
+
+  $('.answer-text').text('✓ ' +window.questionList[currentShowingQuestion-1].answer);
+  $('.answerDisplay').addClass('answerDisplayActive');
+  setTimeout(function() {
+    $('.answerDisplay').removeClass('answerDisplayActive');
+  }, 1500);
 
   // Add animation then remove it
   $('#score-text').addClass('animate__animated animate__heartBeat');
@@ -212,12 +220,22 @@ $(document).on('click', '.wrongAnwser', function () {
   audio_wrong.play();
   window.questionList[currentShowingQuestion-1].result = '✗';
   if (currentShowingQuestion == window.questionList.length) {
-    endGame();
+    setTimeout(function() {
+      endGame();
+    }, 2000);
   }
 
   if (currentShowingQuestion < window.questionList.length) {
-    loadNextQuestion();
+    setTimeout(function() {
+      loadNextQuestion();
+    }, 1500);
   }
+
+  $('.answer-text').text('✗ ' + window.questionList[currentShowingQuestion-1].answer);
+  $('.answerDisplay').addClass('answerDisplayActive');
+  setTimeout(function() {
+    $('.answerDisplay').removeClass('answerDisplayActive');
+  }, 1500);
 });
 
 
