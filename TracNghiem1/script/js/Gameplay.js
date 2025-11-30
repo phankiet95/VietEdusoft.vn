@@ -44,11 +44,14 @@ function restartGame() {
   $('#answer-text3').text('');
   $('#answer-text4').text('');
 
-
   setTimeout(function() {
+
+    let isEachQuestion = $("#resetcountdowneach").prop("checked");
     audio_runTime.play();
     loadNextQuestion();
-    countdownFunction('#timer-text');
+    if(!isEachQuestion) {
+      countdownFunction('#timer-text', isEachQuestion);
+    }
     window.questionList.forEach((element, i) => {
       element.result = '-';
     });
@@ -291,6 +294,16 @@ function loadNextQuestion() {
     loop: false,
     showCursor: false,
   });
+
+  let isEachQuestion = $("#resetcountdowneach").prop("checked");
+  if (isEachQuestion) {
+    timeleft = window.setting.countdown;
+    $('#timer-text').text(timeleft);
+    if (typeof window.timerCountdown !== 'undefined') {  
+      clearInterval(window.timerCountdown);
+    }
+    countdownFunction('#timer-text', isEachQuestion);
+  }
 
   removeAllColor();
 

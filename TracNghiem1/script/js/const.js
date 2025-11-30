@@ -1,6 +1,7 @@
 window.setting = {
   countdown: 90,
-  font: { fontFamily: 'Arial', fontSize: 36 },
+  isCountdownEachQuestion: false,
+  font: { fontFamily: 'Arial', fontSize: 46 },
   gameinfo: {name: 'TracNghiem1'},
   gameIntro: {gameIntro_title:'', gameIntro_detail:''},
 };

@@ -47,6 +47,7 @@ $(document).on('click', '#exportDataFile', function () {
   // Lưu game Intro
   saveIntro();
   let dataSaved = JSON.stringify({ data: window.questionList, setting });
+  console.log('dataSaved = ', dataSaved);
   download(`${window.setting.gameinfo.name}_${getTimeForFileName()}.VietEduSoft`, dataSaved);
 
   setTimeout(() => {
@@ -96,11 +97,15 @@ $(document).on('change', '#importHtml', function () {
         let jsonData = JSON.parse(reader.result);
         if (jsonData.setting.gameinfo.name === window.setting.gameinfo.name) {
           window.setting = jsonData.setting;
+          console.log('countdown each question:', window.setting);
+
           window.questionList = jsonData.data;
           loadQuestionFromListData();
           setIntro();
           loadBackground();
           $('.countdown').val(window.setting.countdown);
+          $('#resetcountdowneach').prop('checked', window.setting.isCountdownEachQuestion);
+          console.log('countdown each question:', window.setting.isCountdownEachQuestion);
           currentChosenIndex = -1;
           showAlert(SUCCESS_IMPORT_GAME);
           const hideQuestionListBtn = document.getElementsByClassName('hideQuestionList')[0];

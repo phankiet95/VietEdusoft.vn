@@ -94,3 +94,9 @@ $(document).ready(function () {
   $('.countdown').val(window.setting.countdown);
 
 });
+
+// Change IsCountdownEachQuestion
+$(document).on('change', '#resetcountdowneach', function () {
+  window.setting.isCountdownEachQuestion = $(this).prop('checked');
+  console.log('countdown each question:', window.setting.isCountdownEachQuestion);
+});
