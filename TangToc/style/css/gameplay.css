@@ -92,8 +92,9 @@
 }
 
 .question-text {
-    font-size: 38px;
+    font-size: 46px;
     font-weight: bolder;
+    margin-bottom: 0;
 }
 
 .scorebar {
