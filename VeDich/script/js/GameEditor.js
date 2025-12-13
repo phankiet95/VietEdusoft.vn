@@ -268,28 +268,28 @@ $(document).ready(function () {
     // For testing purpose
     window.questionList = [
         {
-          question: "Gói 60: Câu hỏi số 1",
-          answer: "Đáp án"
+          question: "Câu hỏi 20 điểm: Thủ đô của Vietnam là gì?",
+          answer: "Hà Nội"
         },
         {
-          question: "Gói 60: Câu hỏi số 2",
-          answer: "Đáp án"
+          question: "Câu hỏi 20 điểm: Ai là người lãnh đạo cuộc khởi nghĩa chống ách đô hộ của nhà Hán vào năm 40, mở đầu cho thời kỳ Trưng Nữ Vương?",
+          answer: "Hai Bà Trưng"
         },
         {
-          question: "Gói 60: Câu hỏi số 3",
-          answer: "Đáp án"
+          question: "Câu hỏi 20 điểm: Trận Bạch Đằng năm 938 do Ngô Quyền chỉ huy đã đánh bại quân của triều đại nào?",
+          answer: "Nhà Tống"
         },
         {
-          question: "Gói 90: Câu hỏi số 1",
-          answer: "Đáp án"
+          question: "Câu hỏi 20 điểm: Đại thắng mùa Xuân năm 1975 đã kết thúc cuộc kháng chiến chống Mỹ và thống nhất đất nước vào thời gian nào?",
+          answer: "30/4/1975"
         },
         {
-          question: "Gói 90: Câu hỏi số 2",
-          answer: "Đáp án"
+          question: "Câu hỏi 30 điểm: Ai là vị tướng tài ba, chỉ huy chiến dịch Điện Biên Phủ 'lừng lẫy năm châu, chấn động địa cầu'?",
+          answer: "Võ Nguyên Giáp"
         },
         {
-          question: "Gói 90: Câu hỏi số 3",
-          answer: "Đáp án"
+          question: "Câu hỏi 30 điểm: Vạn Hạnh Thiền sư đóng vai trò quan trọng trong việc đưa ai lên ngôi, đặt nền móng cho triều đại Nhà Lý?",
+          answer: "Lý Thái Tổ (Lý Công Uẩn)"
         }
       ];
 
