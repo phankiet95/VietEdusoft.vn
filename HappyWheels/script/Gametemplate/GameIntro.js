@@ -9,3 +9,13 @@ $(document).on('click', '#gameIntroBtn', function () {
         $('.gameIntro_text').addClass('d-none');
     }
 });
+
+
+// Close GameIntro when ESC key is pressed
+$(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $('#gameIntro').hasClass('active')) {
+        $('#gameIntro').removeClass('active');
+        $('#gameIntroBtn').removeClass('active');
+        $('.gameIntro_text').addClass('d-none');
+    }
+});
