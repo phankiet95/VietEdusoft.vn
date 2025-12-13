@@ -10,6 +10,7 @@
   right: 0;
   position: absolute;
   transition: all 0.5s;
+  border-radius: 12px;
 }
 #setupPanel:not(.active) {
   right: -300px;
@@ -43,6 +44,7 @@
   z-index: 1;
   transition: all 0.3s;
   padding: 1rem;
+  border-radius: 12px;
 }
 
 .setupPanel_section {

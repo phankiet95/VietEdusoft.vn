@@ -31,6 +31,14 @@ $(document).on('click', '#setupBtn', function () {
   $(this).toggleClass('active');
 });
 
+// Close SetupPanel when ESC key is pressed
+$(document).on('keydown', function (e) {
+  if (e.key === 'Escape' && $('#setupPanel').hasClass('active')) {
+    $('#setupPanel').removeClass('active');
+    $('#setupBtn').removeClass('active');
+  }
+});
+
 // Open/close QuestionList
 $(document).on('click', '.hideQuestionList', function () {
   console.log('open/close QuestionList');

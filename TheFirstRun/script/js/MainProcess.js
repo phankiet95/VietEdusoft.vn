@@ -16,7 +16,6 @@ $(document).on('click', '#exportDataFile', function () {
   // Lưu game Intro
   saveIntro();
   let dataSaved = JSON.stringify({ data: window.questionList, setting, slideintro: window.slideintro });
-  console.log('dataSaved = ', dataSaved);
   download(`${window.setting.gameinfo.name}_${getTimeForFileName()}.VietEduSoft`, dataSaved);
 
   setTimeout(() => {
@@ -37,19 +36,16 @@ $(document).on('change', '#importHtml', function () {
       reader.readAsText(file, 'UTF-8');
       reader.onload = () => {
         let jsonData = JSON.parse(reader.result);
+        console.log(jsonData.gameinfo);
+        // If setting.gameinfo.name from File equal to gameinfoName in GameEditor.js
         if (jsonData.setting.gameinfo.name === window.setting.gameinfo.name) {
           window.setting = jsonData.setting;
-          console.log('countdown each question:', window.setting);
-
           window.questionList = jsonData.data;
           window.slideintro = jsonData.slideintro;
-
           loadQuestionFromListData();
           setIntro();
           loadBackground();
           $('.countdown').val(window.setting.countdown);
-          $('#resetcountdowneach').prop('checked', window.setting.isCountdownEachQuestion);
-          console.log('countdown each question:', window.setting.isCountdownEachQuestion);
           currentChosenIndex = -1;
           showAlert(SUCCESS_IMPORT_GAME);
           const hideQuestionListBtn = document.getElementsByClassName('hideQuestionList')[0];
@@ -65,9 +61,8 @@ $(document).on('change', '#importHtml', function () {
     showAlert(ERROR_WRONG_GAME);
     console.log('err = ', err);
   }
-
-
 });
+
 
 function loadBackground() {
   let player = document.getElementById('backgroundSlideVideo');

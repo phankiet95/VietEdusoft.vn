@@ -33,6 +33,7 @@
   <!-- Game Template Asset -->
   <link rel="stylesheet" href="./style/Gametemplate/setupPanel.css">
   <link rel="stylesheet" href="./style/Gametemplate/gameIntro.css">
+  <link rel="stylesheet" href="./style/Gametemplate/gameSlideIntro.css">
   <link rel="stylesheet" href="./style/Gametemplate/loader.css">
   <link rel="stylesheet" href="./style/Gametemplate/gameframe.css">
   <link rel="stylesheet" href="./style/Gametemplate/mediaPreview.css">
@@ -41,6 +42,7 @@
   <script src="./script/Gametemplate/GamePlayAssetLoader.js"></script>
   <script src="./script/Gametemplate/SetupPanel.js"></script>
   <script src="./script/Gametemplate/GameIntro.js"></script>
+  <script src="./script/Gametemplate/GameSlideIntro.js"></script>
   <script src="./script/Gametemplate/Loader.js"></script>
   <script src="./script/Gametemplate/OpenGameSampleHelper.js"></script>
 
@@ -120,6 +122,11 @@
                 <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3" />
               </svg>
+              </button>
+              <button id="btnCreateSlide" type="button" class="btn btn-info" style="background-color: #17a2b8; margin-left: 10px;">
+                <svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                </svg>
               </button>
             </div>
           </div>
@@ -256,6 +263,103 @@
           <div class="gameIntro_text d-none">
             <p id="gameIntro_title" class="gameIntro_title  animate__animated animate__pulse animate__slow animate__infinite" contenteditable="true">Phản ứng nhanh</p>
             <p id="gameIntro_detail" class="gameIntro_detail" contenteditable="true">Bạn hãy nhanh chóng đọc câu hỏi và trả lời,<br>Cố gắng trả lời đúng được nhiều câu hỏi nhất có thể trong thời gian cho phép<br></p>
+          </div>
+        </div>
+
+        
+        <nav id="gameSlideIntro">
+          <div id="gameSlideBtn" class="btn">
+            <span><svg class="svgicon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+            </svg></span>
+          </div>
+          <div id="gameSlideShowPanel">
+            <div class="slideshow-container">
+              <div class="slide-content-wrapper">
+                <div id="currentSlideMedia" class="current-slide-media"></div>
+                <div id="currentSlideText" class="current-slide-text"></div>
+              </div>
+              
+              <div class="slide-navigation">
+                <button id="prevSlideBtn" class="slide-nav-btn prev-btn">
+                  <svg fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <div class="slide-indicator">
+                  <span id="currentSlideNumber">1</span> / <span id="totalSlideNumber">1</span>
+                </div>
+                <button id="nextSlideBtn" class="slide-nav-btn next-btn">
+                  <svg fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="no-slides-message" style="display: none;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 100px; height: 100px; opacity: 0.5;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              <p>Chưa có slide nào.<br>Hãy nhấn "Tạo slide" để tạo slide!</p>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Slide Creator Modal -->
+        <div id="slideCreatorModal" class="slide-modal" style="display: none;">
+          <div class="slide-modal-content">
+            <div class="slide-modal-header">
+              <h3>Quản lý Slide Intro</h3>
+              <button id="closeSlideCreatorModal" class="slide-close-btn">&times;</button>
+            </div>
+            <div class="slide-modal-body">
+              <!-- Slide List Display -->
+              <div id="slideCreatorList" class="slide-creator-list"></div>
+              
+              <!-- Add Slide Button -->
+              <button id="addNewSlideBtn" class="slide-add-btn">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 20px; height: 20px; display: inline-block;">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Thêm Slide Mới
+              </button>
+            </div>
+            <div class="slide-modal-footer">
+              <button id="saveAllSlidesBtn" class="slide-save-btn">Lưu tất cả</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Editor Modal -->
+        <div id="slideEditorModal" class="slide-modal" style="display: none;">
+          <div class="slide-modal-content slide-editor-content">
+            <div class="slide-modal-header">
+              <h4 id="slideEditorTitle">Chỉnh sửa Slide</h4>
+              <button id="closeSlideEditorModal" class="slide-close-btn">&times;</button>
+            </div>
+            <div class="slide-modal-body">
+              <div class="slide-form-group">
+                <label>Loại Media:</label>
+                <select id="slideMediaType" class="slide-form-control">
+                  <option value="none">Không có media</option>
+                  <option value="image">Hình ảnh</option>
+                  <option value="video">Video</option>
+                </select>
+              </div>
+              <div id="slideMediaInputGroup" class="slide-form-group" style="display: none;">
+                <label id="slideMediaLabel">Chọn File:</label>
+                <input type="file" id="slideMediaFile" class="slide-form-control" accept="image/*,video/*">
+                <div id="slideMediaPreview" class="slide-media-preview"></div>
+              </div>
+              <div class="slide-form-group">
+                <label>Nội dung Text:</label>
+                <textarea id="slideTextContent" class="slide-form-control" rows="5" placeholder="Nhập nội dung slide..."></textarea>
+              </div>
+            </div>
+            <div class="slide-modal-footer">
+              <button id="cancelSlideEditorBtn" class="slide-cancel-btn">Hủy</button>
+              <button id="saveSlideEditorBtn" class="slide-save-btn">Lưu</button>
+            </div>
           </div>
         </div>
       </nav>
