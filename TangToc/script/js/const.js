@@ -1,6 +1,6 @@
 window.setting = {
   countdown: 60,
-  font: { fontFamily: 'Arial', fontSize: 38 },
+  font: { fontFamily: 'Arial', fontSize: 46 },
   gameinfo: {name: 'TangToc'},
   gameIntro: {gameIntro_title:'', gameIntro_detail:''},
 };
