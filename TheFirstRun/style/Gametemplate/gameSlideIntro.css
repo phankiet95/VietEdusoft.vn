@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 10px;
 }
 
 .slideshow-container {
@@ -519,4 +519,9 @@ textarea.slide-form-control {
     height: 80px;
     margin-bottom: 15px;
     opacity: 0.3;
+}
+
+/* Ensure SweetAlert appears above slide modals */
+.swal-high-zindex {
+    z-index: 20000 !important;
 }

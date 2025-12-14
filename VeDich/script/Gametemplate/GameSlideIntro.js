@@ -159,7 +159,10 @@ $(document).on('click', '.slide-delete-btn', function () {
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
         confirmButtonText: 'Xóa',
-        cancelButtonText: 'Hủy'
+        cancelButtonText: 'Hủy',
+        customClass: {
+            container: 'swal-high-zindex'
+        }
     }).then((result) => {
         if (result.isConfirmed) {
             window.slideintro.splice(index, 1);
@@ -169,7 +172,10 @@ $(document).on('click', '.slide-delete-btn', function () {
                 title: 'Đã xóa!',
                 text: 'Slide đã được xóa.',
                 timer: 1500,
-                showConfirmButton: false
+                showConfirmButton: false,
+                customClass: {
+                    container: 'swal-high-zindex'
+                }
             });
         }
     });
